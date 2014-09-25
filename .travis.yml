@@ -10,12 +10,12 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-    - sudo apt-get install --allow-unauthenticated -qq clang-3.5
-    - sudo apt-get install -qq g++-4.9 gcc-4.9
+    - sudo apt-get install --allow-unauthenticated -qq clang-3.6
+    - sudo apt-get install -qq g++-4.8 gcc-4.8
 
     - sudo apt-get install -qq libboost-python1.53-dev libgoogle-perftools-dev libgmp-dev libboost1.53-dev git cmake
 
-    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 80 --slave /usr/bin/g++ g++ /usr/bin/g++-4.9
+    - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 80 --slave /usr/bin/g++ g++ /usr/bin/g++-4.8
 
     - "pip install ply"
     - "pip install networkx"
@@ -100,10 +100,10 @@ env:
   #- TESTCASE=pythran/tests/test_blas.py CXX=clang++-3.5 CXXFLAGS="-DUSE_BOOST_SIMD -march=native"
   #- TESTCASE=pythran/tests/test_blas.py CXX=clang++-3.5 CXXFLAGS="-fopenmp"
   #- TESTCASE=pythran/tests/test_blas.py CXX=clang++-3.5 CXXFLAGS="-DUSE_BOOST_SIMD -march=native -fopenmp"
-  - TESTCASE=pythran/tests/test_cases.py CXX=g++ CXXFLAGS="-g"
-  - TESTCASE=pythran/tests/test_cases.py CXX=g++ CXXFLAGS="-DUSE_BOOST_SIMD -march=native"
-  - TESTCASE=pythran/tests/test_cases.py CXX=g++ CXXFLAGS="-fopenmp"
-  - TESTCASE=pythran/tests/test_cases.py CXX=g++ CXXFLAGS="-DUSE_BOOST_SIMD -march=native -fopenmp"
+  - TESTCASE=pythran/tests/test_cases.py CXX=clang++-3.6 CXXFLAGS="-g"
+  - TESTCASE=pythran/tests/test_cases.py CXX=clang++-3.6 CXXFLAGS="-DUSE_BOOST_SIMD -march=native"
+  - TESTCASE=pythran/tests/test_cases.py CXX=clang++-3.6 CXXFLAGS="-fopenmp"
+  - TESTCASE=pythran/tests/test_cases.py CXX=clang++-3.6 CXXFLAGS="-DUSE_BOOST_SIMD -march=native -fopenmp"
   #- TESTCASE=pythran/tests/test_constant_folding.py CXX=clang++-3.5 CXXFLAGS="-g"
   #- TESTCASE=pythran/tests/test_constant_folding.py CXX=clang++-3.5 CXXFLAGS="-DUSE_BOOST_SIMD -march=native"
   #- TESTCASE=pythran/tests/test_constant_folding.py CXX=clang++-3.5 CXXFLAGS="-fopenmp"
